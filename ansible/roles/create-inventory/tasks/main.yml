@@ -43,7 +43,7 @@
     ocpinventory_hv_nodes: []
 
 - name: Bare metal cluster and remote worker node cluster type tasks
-  when: cluster_type == "bm" or cluster_type == "rwn"
+  when: cluster_type == "bm" or cluster_type == "rwn" or cluster_type == "vms"
   block:
   - name: BM/RWN - Set inventory variables
     set_fact:
@@ -124,7 +124,7 @@
     set_fact:
       ocpinventory_hv_nodes: "{{ ocpinventory.json.nodes[max_nodes|int:] }}"
 
-- name: BM - Get lab mac address
+- name: BM / VMS - Get lab mac address
   uri:
     url: "https://{{ labs[lab]['foreman'] }}/api/hosts/{{ item.pm_addr | replace('mgmt-','') }}"
     force_basic_auth: yes
@@ -133,7 +133,7 @@
     validate_certs: false
   with_items:
     - "{{ ocpinventory_worker_nodes }}"
-  when: cluster_type == "bm"
+  when: cluster_type == "bm" or cluster_type == "vms"
   register: bm_foreman_data
 
 - name: Single Node OpenShift cluster type tasks

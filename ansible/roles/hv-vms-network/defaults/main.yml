@@ -1,0 +1,6 @@
+---
+# hv-network default vars
+
+hypervisor_baremetal_bridge_name: baremetal
+hypervisor_provisioning_bridge_name: provisioning
+

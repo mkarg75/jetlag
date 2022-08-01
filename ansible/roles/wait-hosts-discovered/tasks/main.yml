@@ -11,6 +11,11 @@
     inventory_nodes: "{{ groups['controlplane'] + groups['worker'] }}"
   when: cluster_type == "bm"
 
+- name: VMS - Create list of nodes to be discovered
+  set_fact:
+    inventory_nodes: "{{ groups['controlplane'] + groups['worker'] }}"
+  when: cluster_type == "vms"
+
 - name: Wait up to 40 min for nodes to be discovered
   uri:
     url: "http://{{ assisted_installer_host }}:{{ assisted_installer_port }}/api/assisted-install/v1/clusters/{{ ai_cluster_id }}"

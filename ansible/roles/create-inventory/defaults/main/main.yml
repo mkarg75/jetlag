@@ -9,11 +9,13 @@ bm_worker_node_offset: 7
 ################################################################################
 # Var(s) for hypervisors and hypervisor hosted VMs
 ################################################################################
-# Enables placing extra machines as hypervisors in the inventory and generating the inventory of VMs
-hv_inventory: false
+
+# Enables placing extra machines as hypervisors in the inventory and generating the inventory of emulated bare-metal
+# SNOs on those hypervisors
+hv_inventory: true
 
 # ssh password for hypervisors
-hv_ssh_pass:
+hv_ssh_pass: 100yard-
 
 hv_ip_offset: 0
 
@@ -33,3 +35,7 @@ hv_vm_bandwidth_burst: 11750
 
 # Path for VMs on disk2
 disk2_mount_path: /mnt/disk2
+
+# temporary variables to fix errors
+base_dns_name: "example.com"
+bastion_dnsmasq_cd_network_offset: 1000

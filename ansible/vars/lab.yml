@@ -58,6 +58,13 @@ hw_nic_name:
   #  - (nic 2 - Network 2)
   #  ...
   # Thus hw_nic_name['scalelab']['r640'][1] = Network 1 = ens1f0
+  alias:
+    r750:
+    - eno8303
+    - ens3f0
+    - ens3f1
+    - ens6f0
+    - ens6f1
   scalelab:
     r630:
     - enp3s0f0
@@ -228,3 +235,7 @@ hw_vm_counts:
 #     dl360:
 #       default: 5
 #       sdc: 8
+#
+
+# virtual workers per hypervisor
+hw_vm_worker_counts: 4

@@ -8,6 +8,7 @@ rh_lab_cluster_types:
 - bm
 - rwn
 - sno
+- vms
 
 ibmcloud_cluster_types:
 - bm
